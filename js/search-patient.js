@@ -5,15 +5,18 @@ button.addEventListener('click',function(event){
 });
 
 function xmlRequest(){
+
     var request = new XMLHttpRequest();
-    request.open('GET','https://api-pacientes.herokuapp.com/pacientes'); 
+    request.open('GET','https://api-pacientes.herokuapp.com/padcientes'); 
 
-    request.addEventListener('load',function(){
+    request.addEventListener('load',function(spanError){        
+        
         ifRequestError(this);
-
+        
         var patientsPt = JSON.parse(this.responseText);  
         addPatients(renameKeywords(patientsPt));
     }); 
+
 
     request.send();     
 }
@@ -22,7 +25,10 @@ function ifRequestError(request){
     if (request.status != 200) {
         console.log(request.status);
         console.log(request.status.responseText);
-    }
+        let spanError = document.querySelector('#search-error');
+        spanError.classList.add('request-error');
+        spanError.textContent = 'Erro ao buscar os pacientes';
+    }   
 }
 
 function addPatients(patients){
