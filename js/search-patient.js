@@ -7,7 +7,7 @@ button.addEventListener('click',function(event){
 function xmlRequest(){
 
     var request = new XMLHttpRequest();
-    request.open('GET','https://api-pacientes.herokuapp.com/padcientes'); 
+    request.open('GET','https://api-pacientes.herokuapp.com/pacientes'); 
 
     request.addEventListener('load',function(spanError){        
         
