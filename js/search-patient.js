@@ -27,7 +27,7 @@ function ifRequestError(request){
         console.log(request.status.responseText);
         let spanError = document.querySelector('#search-error');
         spanError.classList.add('request-error');
-        spanError.textContent = 'Erro ao buscar os pacientes';
+        spanError.textContent = 'Error searching for patients';
     }   
 }
 

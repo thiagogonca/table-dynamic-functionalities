@@ -1,10 +1,10 @@
 
-var button = document.querySelector('#adicionar-paciente');
+var button = document.querySelector('#add-patient');
 
 button.addEventListener('click', function (event){    
     event.preventDefault();
 
-    var formAddPatient = document.querySelector('#form-adiciona');
+    var formAddPatient = document.querySelector('#form-add');
     var newPatient = createNewPatient(formAddPatient); 
 
     var errors = verifyPatient(newPatient); 
@@ -16,7 +16,7 @@ button.addEventListener('click', function (event){
 
     buildTr(newPatient);
 
-    var patients = document.querySelectorAll('.paciente');
+    var patients = document.querySelectorAll('.patient');
     var currentPatient = patients[(patients.length)-1];
 
     showImc(newPatient.weight,newPatient.height,currentPatient);
@@ -29,10 +29,10 @@ button.addEventListener('click', function (event){
 
 function createNewPatient(form) {
     var newPatient = { 
-        name: form.nome.value,
-        weight: form.peso.value,
-        height: form.altura.value,
-        fat: form.gordura.value,
+        name: form.name.value,
+        weight: form.weight.value,
+        height: form.height.value,
+        fat: form.fat.value,
         imc: ''
     }
     return newPatient;
@@ -41,15 +41,15 @@ function createNewPatient(form) {
 function buildTr(newPatient) {
 
     var newPatientTr = document.createElement('tr');
-    newPatientTr.classList.add('paciente');
+    newPatientTr.classList.add('patient');
  
-    newPatientTr.appendChild(buildTd(newPatient.name,'info-nome'));
-    newPatientTr.appendChild(buildTd(newPatient.weight,'info-peso'));
-    newPatientTr.appendChild(buildTd(newPatient.height,'info-altura'));
-    newPatientTr.appendChild(buildTd(newPatient.fat,'info-gordura'));
-    newPatientTr.appendChild(buildTd(newPatient.imc,'info-imc'));
+    newPatientTr.appendChild(buildTd(newPatient.name,'info-name'));
+    newPatientTr.appendChild(buildTd(newPatient.weight,'info-weight'));
+    newPatientTr.appendChild(buildTd(newPatient.height,'info-height'));
+    newPatientTr.appendChild(buildTd(newPatient.fat,'info-fat'));
+    newPatientTr.appendChild(buildTd(newPatient.imc,'info-bmi'));
 
-    tbody = document.querySelector('#tabela-pacientes');
+    tbody = document.querySelector('#patients-table');
     tbody.appendChild(newPatientTr);
 
 }
@@ -65,19 +65,19 @@ function verifyPatient(patient) {
     var errors = [];
 
     if (!verifyName(patient)){
-        errors.push('Nome inválido')
+        errors.push('Invalid name');
     }
 
     if (!verifyWeight(patient.weight)){
-        errors.push('Peso inválido!');
+        errors.push('Invalid weight!');
     }
     
     if (!verifyHeight(patient.height)){
-        errors.push('Altura inválida!');
+        errors.push('Invalid height!');
     }
 
     if (!verifyFat(patient)){
-        errors.push('Gordura inválida!')
+        errors.push('Invalid fat!');
     }
     
     return errors;

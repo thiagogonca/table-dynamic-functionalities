@@ -2,7 +2,7 @@ var filter = document.querySelector('#filter-table');
 
 filter.addEventListener('input', function(){
     
-    var patients = document.querySelectorAll('.paciente');
+    var patients = document.querySelectorAll('.patient');
     
     patients.forEach(patient => {
         nameMatch(patient,this);
@@ -11,7 +11,7 @@ filter.addEventListener('input', function(){
 });
 
 function nameMatch(patient,filter){
-    var name = patient.querySelector('.info-nome').textContent; 
+    var name = patient.querySelector('.info-name').textContent; 
     var expression = new RegExp(filter.value,'i'); 
     
     if (filter.value != '') {

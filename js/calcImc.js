@@ -1,11 +1,11 @@
-var all_patients = document.querySelectorAll('.paciente'); 
+var all_patients = document.querySelectorAll('.patient'); 
 
 for(var i = 0; i < all_patients.length; i++){
 
     var trpatient = all_patients[i];
 
-    var weight = trpatient.querySelector('.info-peso').textContent;
-    var height = trpatient.querySelector('.info-altura').textContent;
+    var weight = trpatient.querySelector('.info-weight').textContent;
+    var height = trpatient.querySelector('.info-height').textContent;
     
     showImc(weight,height,trpatient);
 }
@@ -18,16 +18,16 @@ function calcImc(weight,height){
 function showImc(weight,height,patient){ 
 
     if (!verifyWeight(weight)) {
-        patient.querySelector('.info-imc').textContent = 'Peso inválido.';
-        patient.classList.add('paciente-invalido'); 
+        patient.querySelector('.info-bmi').textContent = 'Invalid weight.';
+        patient.classList.add('invalid-patient'); 
     }
     else {
         if (!verifyHeight(height)) {
-            patient.querySelector('.info-imc').textContent = 'Altura inválida.' ;
-            patient.classList.add('paciente-invalido');
+            patient.querySelector('.info-bmi').textContent = 'Invalid height.' ;
+            patient.classList.add('invalid-patient');
         }
         else {
-            patient.querySelector('.info-imc').textContent = calcImc(weight,height);
+            patient.querySelector('.info-bmi').textContent = calcImc(weight,height);
         }
     }
 }

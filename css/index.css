@@ -12,31 +12,6 @@ body{
 	--defining-new-variable: red;
 }
 
-header{
-	background-color: #333;
-	height: 3em;
-	color: #FFF;
-	margin-bottom: 1em;
-}
-
-header h1{
-	font-size: 2em;
-	display:inline-block;
-	vertical-align:	middle;
-}
-header h2{
-	font-size: 2em;
-	display:inline-block;
-	vertical-align:	middle;
-}
-
-header .container:before{
-	content: '';
-	display:inline-block;
-	height: 100%;
-	vertical-align:	middle;
-}
-
 .container{
 	width: 60%;
 	height: 100%;
@@ -72,7 +47,7 @@ td, th {
 
 th{
 	font-weight: bold;
-	background-color: #EEE;
+	background-color: rgb(36, 200, 151);
 }
 
 label{
@@ -85,7 +60,7 @@ label{
 	margin: 0;
 	padding-bottom: 1em;
 	width: 100%;
-	border: 1px solid #ccc;
+	border: 1px solid rgb(204, 204, 204);
 	padding: .7em;
 	width: 100%;
 }
@@ -105,17 +80,18 @@ button{
 	padding: .5em 2em;
 	border: 0;
 	border-bottom: 3px solid;
-	font-size: 1.2em;
+	font-size: 1.5em;
 	cursor: pointer;
 	margin: 0;
 	margin-top: -3px;
 	color: #fff;
-	background-color:#0c8cd3;
+	background-color:#20cd88;
 	border-color: #04324c;
 	width: 20%;
     display: block;
     clear: both;
     margin: 10px 0px;
+	border-radius: 5px;
 
 }
 
@@ -130,7 +106,7 @@ button[disabled=disabled], button:disabled {
 
 }
 
-.adicionar-paciente{
+.add-patient{
     margin-top: 30px;
 }
 
@@ -138,14 +114,14 @@ button[disabled=disabled], button:disabled {
 	border: 1px solid red;
 }
 
-.paciente-invalido{
-	background-color: red;
-	/* color: white; */
-	color: var(--defining-new-variable);
+.invalid-patient{
+	background-color: rgb(255, 88, 88);
+	color: white;
 }
 
 #errors-form{
-	color: red;
+	color: rgb(255, 88, 88);
+	font-size: 20px;
 }
 
 .fadeOut{

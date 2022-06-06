@@ -2,78 +2,75 @@
 <html lang="pt-br">
 	<head>
 		<meta charset='utf-8'>
-		<title>Nutricionista</title>
-		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<title>IMC calculator</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
 		<link rel="stylesheet" type="text/css" href="css/index.css">	
 	</head>
 	<body>
 
-		<header>
-			<div class="container">
-				<h1 id="main-title">Nutrição</h1>
-			</div>
-		</header>
 		<main>
 			<section class="container">
-				<h2>Meus pacientes</h2>
-				<label for="filter-table">Pesquisar: </label>
-				<input name="filter" type="text" id="filter-table" placeholder="Filtre sua busca: " >
+				<h2>Table of Patients - BMI Calculator</h2>
+
+				<h3>You can double click any column from the table to delete the corresponding patient.</h3>
+				<h3>Search for new patients is connected with a herokuapp API</h3>
+				<label for="filter-table">Filter: </label>
+				<input name="filter" type="text" id="filter-table" placeholder="Filter by patient's name " >
 				<table>
 					<thead>
 						<tr>
-							<th>Nome</th>
-							<th>Peso(kg)</th>
-							<th>Altura(m)</th>
-							<th>Gordura Corporal(%)</th>
-							<th>IMC</th>
+							<th>Name</th>
+							<th>Weight(kg)</th>
+							<th>Height(m)</th>
+							<th>Body fat (%)</th>
+							<th>BMI</th>
 						</tr>
 					</thead>
-					<tbody id="tabela-pacientes">
-						<tr class="paciente" id="p1" >
-							<td class="info-nome">Paulo</td>
-							<td class="info-peso">100</td>
-							<td class="info-altura">2.00</td>
-							<td class="info-gordura">10</td>
-							<td class="info-imc">0</td>
+					<tbody id="patients-table">
+						<tr class="patient" id="p1" >
+							<td class="info-name">Paulo</td>
+							<td class="info-weight">100</td>
+							<td class="info-height">2.00</td>
+							<td class="info-fat">10</td>
+							<td class="info-bmi">0</td>
 						</tr>
 
-						<tr class="paciente" >
-							<td class="info-nome">João</td>
-							<td class="info-peso">80</td>
-							<td class="info-altura">1.72</td>
-							<td class="info-gordura">40</td>
-							<td class="info-imc">0</td>
+						<tr class="patient" >
+							<td class="info-name">João</td>
+							<td class="info-weight">80</td>
+							<td class="info-height">1.72</td>
+							<td class="info-fat">40</td>
+							<td class="info-bmi">0</td>
 						</tr>
 
-						<tr class="paciente" >
-							<td class="info-nome">Erica</td>
-							<td class="info-peso">54</td>
-							<td class="info-altura">1.64</td>
-							<td class="info-gordura">14</td>
-							<td class="info-imc">0</td>
+						<tr class="patient" >
+							<td class="info-name">Erica</td>
+							<td class="info-weight">5054</td>
+							<td class="info-height">1.64</td>
+							<td class="info-fat">14</td>
+							<td class="info-bmi">0</td>
 						</tr>
 
-						<tr class="paciente">
-							<td class="info-nome">Douglas</td>
-							<td class="info-peso">85</td>
-							<td class="info-altura">1.73</td>
-							<td class="info-gordura">24</td>
-							<td class="info-imc">0</td>
+						<tr class="patient">
+							<td class="info-name">Douglas</td>
+							<td class="info-weight">85</td>
+							<td class="info-height">1.73</td>
+							<td class="info-fat">24</td>
+							<td class="info-bmi">0</td>
 						</tr>
-						<tr class="paciente" >
-							<td class="info-nome">Tatiana</td>
-							<td class="info-peso">46</td>
-							<td class="info-altura">1.55</td>
-							<td class="info-gordura">19</td>
-							<td class="info-imc">0</td>
+						<tr class="patient" >
+							<td class="info-name">Tatiana</td>
+							<td class="info-weight">46</td>
+							<td class="info-height">1.55</td>
+							<td class="info-fat">19</td>
+							<td class="info-bmi">0</td>
 						</tr>
 					</tbody>
 				</table>
 
 				<!-- Search new patient -->
 				<div class="search-from-http">
-					<button id="search-patients" class="add btn-main">Buscar novo paciente</button>
+					<button id="search-patients" class="add btn-main">Search for new patients</button>
 					<span id="search-error"></span>
 				</div>
 				
@@ -85,7 +82,7 @@
 		<!-- Formulário -->
 
 		<section class="container">
-			<h2 id="titulo-form">Adicionar novo paciente</h2>
+			<h2 id="titulo-form">Add new patient</h2>
 			
 			<!-- Errors -->
 
@@ -93,25 +90,25 @@
 				<!-- <li class="li-error"></li> -->
 			</ul>
 			
-			<form id="form-adiciona"> 
+			<form id="form-add"> 
 				<div class="grupo">
-					<label for="nome">Nome:</label>
-					<input id="nome" name="nome" type="text" placeholder="digite o nome do seu paciente" class="campo">
+					<label for="name">Name:</label>
+					<input id="name" name="name" type="text" placeholder="type here..." class="campo">
 				</div>
 				<div class="grupo">
-					<label for="peso">Peso:</label>
-					<input id="peso" name="qqr coisa" type="text" placeholder="digite o peso do seu paciente" class="campo campo-medio">
+					<label for="weight">Weight:</label>
+					<input id="weight" name="weight" type="text" placeholder="type here..." class="campo campo-medio">
 				</div>
 				<div class="grupo">
-					<label for="altura">Altura:</label>
-					<input id="altura" name="altura" type="text" placeholder="digite a altura do seu paciente" class="campo campo-medio">
+					<label for="height">Height:</label>
+					<input id="height" name="height" type="text" placeholder="type here..." class="campo campo-medio">
 				</div>
 				<div class="grupo">
-					<label for="gordura">% de Gordura:</label>
-					<input id="gordura" name="gordura" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="campo campo-medio">
+					<label for="fat">% of Body Fat:</label>
+					<input id="fat" name="fat" type="text" placeholder="type here..." class="campo campo-medio">
 				</div>
 
-				<button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
+				<button id="add-patient" class="btn-main">Click here to add</button>
 			</form>
 		</section>
 
